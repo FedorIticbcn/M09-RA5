@@ -44,45 +44,45 @@ public class Rot13 {
     }
 
     public String xifraRot13 (String cadena) {
-        String rot13 = "";
+        String resultat = "";
 
         for (int i = 0; i < cadena.length(); i++) {
             char c = cadena.charAt(i);
             int posicio = buscaPosicio(c, majuscules);
 
             if (posicio != -1) {
-                rot13 += majuscules[(posicio + 13) % majuscules.length];
+                resultat += majuscules[(posicio + 13) % majuscules.length];
             } else {
                 posicio = buscaPosicio(c, minuscules);
                 if (posicio != -1) {
-                    rot13 += minuscules[(posicio + 13) % minuscules.length];
+                    resultat += minuscules[(posicio + 13) % minuscules.length];
                 } else {
-                    rot13 += c;
+                    resultat += c;
                 }
             }
         }
 
-        return rot13;
+        return resultat;
     }
 
     public String desxifraRot13 (String cadena) {
-        String rot13 = "";
+        String resultat = "";
         for (int i = 0; i < cadena.length(); i++) {
             char c = cadena.charAt(i);
             int posicio = buscaPosicio(c, majuscules);
 
             if (posicio != -1) {
-                rot13 += majuscules[(posicio + majuscules.length - 13) % majuscules.length];
+                resultat += majuscules[(posicio + majuscules.length - 13) % majuscules.length];
             } else {
                 posicio = buscaPosicio(c, minuscules);
                 if (posicio != -1) {
-                    rot13 += minuscules[(posicio + minuscules.length - 13) % minuscules.length];
+                    resultat += minuscules[(posicio + minuscules.length - 13) % minuscules.length];
                 } else {
-                    rot13 += c;
+                    resultat += c;
                 }
             }
         }
-        return rot13;
+        return resultat;
     }
 
 }
