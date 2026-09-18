@@ -1,13 +1,13 @@
 public class Rot13 {
 
-    char[] majuscules = {
+    private static final char[] MAJUSCULES = {
         'A', 'Á', 'À', 'B', 'C', 'Ç', 'D', 'E', 'É', 'È',
         'F', 'G', 'H', 'I', 'Í', 'Ì', 'Ï', 'J', 'K', 'L', 'M',
         'N', 'Ñ', 'O', 'Ó', 'Ò', 'P', 'Q', 'R', 'S', 'T',
         'U', 'Ú', 'Ù', 'Ü', 'V', 'W', 'X', 'Y', 'Z'
     };
 
-    char[] minuscules = {
+    private static final char[] MINUSCLUES = {
         'a', 'á', 'à', 'b', 'c', 'ç', 'd', 'e', 'é', 'è',
         'f', 'g', 'h', 'i', 'í', 'ì', 'ï', 'j', 'k', 'l', 'm',
         'n', 'ñ', 'o', 'ó', 'ò', 'p', 'q', 'r', 's', 't',
@@ -45,45 +45,45 @@ public class Rot13 {
     }
 
     public String xifraRot13 (String cadena) {
-        String resultat = "";
+        StringBuffer sb = new StringBuffer();
 
         for (int i = 0; i < cadena.length(); i++) {
             char c = cadena.charAt(i);
-            int posicio = buscaPosicio(c, majuscules);
+            int posicio = buscaPosicio(c, MAJUSCULES);
 
             if (posicio != -1) {
-                resultat += majuscules[(posicio + 13) % majuscules.length];
+                sb.append(MAJUSCULES[(posicio + 13) % MAJUSCULES.length]);
             } else {
-                posicio = buscaPosicio(c, minuscules);
+                posicio = buscaPosicio(c, MINUSCLUES);
                 if (posicio != -1) {
-                    resultat += minuscules[(posicio + 13) % minuscules.length];
+                    sb.append(MINUSCLUES[(posicio + 13) % MINUSCLUES.length]);
                 } else {
-                    resultat += c;
+                    sb.append(c);
                 }
             }
         }
 
-        return resultat;
+        return sb.toString();
     }
 
     public String desxifraRot13 (String cadena) {
-        String resultat = "";
+        StringBuffer sb = new StringBuffer();
         for (int i = 0; i < cadena.length(); i++) {
             char c = cadena.charAt(i);
-            int posicio = buscaPosicio(c, majuscules);
+            int posicio = buscaPosicio(c, MAJUSCULES);
 
             if (posicio != -1) {
-                resultat += majuscules[(posicio + majuscules.length - 13) % majuscules.length];
+                sb.append(MAJUSCULES[(posicio + MAJUSCULES.length - 13) % MAJUSCULES.length]);
             } else {
-                posicio = buscaPosicio(c, minuscules);
+                posicio = buscaPosicio(c, MINUSCLUES);
                 if (posicio != -1) {
-                    resultat += minuscules[(posicio + minuscules.length - 13) % minuscules.length];
+                    sb.append(MINUSCLUES[(posicio + MINUSCLUES.length - 13) % MINUSCLUES.length]);
                 } else {
-                    resultat += c;
+                    sb.append(c);
                 }
             }
         }
-        return resultat;
+        return sb.toString();
     }
 
 }
