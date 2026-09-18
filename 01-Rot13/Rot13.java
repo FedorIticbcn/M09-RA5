@@ -15,23 +15,24 @@ public class Rot13 {
     };
     
     public static void main(String[] args) {
+        Rot13 rot13 = new Rot13();
         System.out.println("Xifrat");
         System.out.println("------");
         System.out.println();
 
-        System.out.println(new Rot13().xifraRot13("ABC"));
-        System.out.println(new Rot13().xifraRot13("XYZ"));
-        System.out.println(new Rot13().xifraRot13("Hola, Mr. calçot"));
-        System.out.println(new Rot13().xifraRot13("Perdó, per tu què és"));
+        System.out.println(rot13.xifraRot13("ABC"));
+        System.out.println(rot13.xifraRot13("XYZ"));
+        System.out.println(rot13.xifraRot13("Hola, Mr. calçot"));
+        System.out.println(rot13.xifraRot13("Perdó, per tu què és"));
 
         System.out.println();
         System.out.println("Desxifrat");
         System.out.println("------");
 
-        System.out.println(new Rot13().desxifraRot13("IÏJ"));
-        System.out.println(new Rot13().desxifraRot13("FGH"));
-        System.out.println(new Rot13().desxifraRot13("Òwúi, Ùá. jiúkwb"));
-        System.out.println(new Rot13().desxifraRot13("Zmálx, zmá bc acñ nà"));
+        System.out.println(rot13.desxifraRot13("IÏJ"));
+        System.out.println(rot13.desxifraRot13("FGH"));
+        System.out.println(rot13.desxifraRot13("Òwúi, Ùá. jiúkwb"));
+        System.out.println(rot13.desxifraRot13("Zmálx, zmá bc acñ nà"));
     }
 
     private int buscaPosicio(char c, char[] alfabet) {
