@@ -15,30 +15,31 @@ public class RotX {
 
     public static void main(String[] args) {
         RotX rotX = new RotX();
-        String[] cadenas = {"ABC", "XYZ", "Hola, Mr. calçot", "Perdó, per tu què es", "ZAÁ", "Ïqoc, Óú. écoèqü", "Úiüht, úiü wx ùxì iv"};
+        String[] cadenas = {"ABC", "XYZ", "Hola, Mr. calçot", "Perdó, per tu què es", "ABC", "ZAÁ", "Ïqoc, Óú. écoèqü", "Úiüht, úiü wx ùxì iv"};
+        
         System.out.println("Xifrat");
         System.out.println("------");
         System.out.println();
 
-        System.out.println(rotX.xifraRotX(cadenas[0], 0));
-        System.out.println(rotX.xifraRotX(cadenas[1], 2));
-        System.out.println(rotX.xifraRotX(cadenas[2], 4));
-        System.out.println(rotX.xifraRotX(cadenas[3], 6));
+        for (int i = 0; i < 4; i++) {
+            System.out.println(rotX.xifraRotX(cadenas[i], i*2));
+        }
 
         System.out.println();
         System.out.println("Desxifrat");
         System.out.println("------");
 
-        System.out.println(rotX.desxifraRotX(cadenas[0], 0));
-        System.out.println(rotX.desxifraRotX(cadenas[4], 2));
-        System.out.println(rotX.desxifraRotX(cadenas[5], 4));
-        System.out.println(rotX.desxifraRotX(cadenas[6], 6));
-    
+        int desplaçament = 0;
+        for (int i = 4; i < 8; i++) {
+                System.out.println(rotX.desxifraRotX(cadenas[i], desplaçament*2));
+                desplaçament++;    
+        }
+        
         System.out.println();
         System.out.println("Missatge xifrat: " + cadenas[6]);
         System.out.println("------");
 
-        rotX.forçaBrutaRotX(cadenas[6]);
+        rotX.forçaBrutaRotX(cadenas[7]);
     }
 
     private int buscaPosicio(char c, char[] alfabet) {
