@@ -1,3 +1,4 @@
+package src;
 public class Rot13 {
 
     private static final char[] MAJUSCULES = {
