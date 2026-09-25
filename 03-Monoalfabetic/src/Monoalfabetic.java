@@ -16,7 +16,6 @@ public class Monoalfabetic {
         alfabetPermutat = permutaAlfabet(MAJUSCULES);
     }
 
-
     public static void main(String[] args) {
         Monoalfabetic mono = new Monoalfabetic();
 
@@ -75,6 +74,17 @@ public class Monoalfabetic {
         System.out.println("Correcte:   " + text3.equals(desxifrat3));
     }
 
+    private int buscaPosicio(char caracter, char[] alfabet) {
+
+        for (int i = 0; i < alfabet.length; i++) {
+            if (alfabet[i] == caracter) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public char[] permutaAlfabet(char[] alfabet) {
         ArrayList<Character> alfabetLlista = new ArrayList<>();
         for (char c : alfabet) {
@@ -96,19 +106,9 @@ public class Monoalfabetic {
         for (int i = 0; i < cadena.length(); i++) {
 
             char caracter = cadena.charAt(i);
-
             boolean minuscula = Character.isLowerCase(caracter);
-
             char caracterMajuscula = Character.toUpperCase(caracter);
-
-            int posicio = -1;
-
-            for (int j = 0; j < MAJUSCULES.length; j++) {
-                if (MAJUSCULES[j] == caracterMajuscula) {
-                    posicio = j;
-                    break;
-                }
-            }
+            int posicio = buscaPosicio(caracterMajuscula, MAJUSCULES);
 
             if (posicio != -1) {
 
@@ -117,7 +117,6 @@ public class Monoalfabetic {
                 if (minuscula) {
                     xifrat = Character.toLowerCase(xifrat);
                 }
-
                 resultat.append(xifrat);
 
             } else {
@@ -134,19 +133,9 @@ public class Monoalfabetic {
         for (int i = 0; i < cadena.length(); i++) {
 
             char caracter = cadena.charAt(i);
-
             boolean minuscula = Character.isLowerCase(caracter);
-
             char caracterMajuscula = Character.toUpperCase(caracter);
-
-            int posicio = -1;
-
-            for (int j = 0; j < alfabetPermutat.length; j++) {
-                if (alfabetPermutat[j] == caracterMajuscula) {
-                    posicio = j;
-                    break;
-                }
-            }
+            int posicio = buscaPosicio(caracterMajuscula, alfabetPermutat);
 
             if (posicio != -1) {
 
@@ -155,7 +144,6 @@ public class Monoalfabetic {
                 if (minuscula) {
                     desxifrat = Character.toLowerCase(desxifrat);
                 }
-
                 resultat.append(desxifrat);
 
             } else {
