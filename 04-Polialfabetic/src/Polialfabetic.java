@@ -12,12 +12,10 @@ public class Polialfabetic {
     };
 
     private static char[] alfabetPermutat;
-    private static Random random; 
-    private static int clauSecreta = new Random().nextInt();  
+    private static Random random;
+    private static long clauSecreta = new Random().nextLong();
 
     public static void main(String[] args) {
-
-        
 
         String messages[] = {
             "Test 01 àrbitre, coixí, Perímetre",
@@ -45,7 +43,7 @@ public class Polialfabetic {
         }
     }
 
-    private static void initRandom(int clauSecreta) {
+    private static void initRandom(long clauSecreta) {
         random = new Random(clauSecreta);
     }
 
