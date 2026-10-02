@@ -12,11 +12,12 @@ public class Polialfabetic {
     };
 
     private static char[] alfabetPermutat;
-    private static Random random;   
+    private static Random random; 
+    private static int clauSecreta = new Random().nextInt();  
 
     public static void main(String[] args) {
 
-        int clauSecreta = new Random().nextInt();
+        
 
         String messages[] = {
             "Test 01 àrbitre, coixí, Perímetre",
