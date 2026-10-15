@@ -129,13 +129,23 @@ public class XifradorAES implements Xifrador{
 
     @Override
     public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'xifra'");
+        try {
+            return new TextXifrat(xifraAES(msg, clau));
+        } catch (Exception e) {
+            System.err.println("Error de xifrat: " + e.getLocalizedMessage());
+            System.exit(1);
+            return null;
+        }
     }
 
     @Override
     public String desxifra(TextXifrat xifrat, String clau) throws ClauNoSuportada {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'desxifra'");
+        try {
+            return desxifraAES(xifrat.getBytes(), clau);
+        } catch (Exception e) {
+            System.err.println("Error de xifrat: " + e.getLocalizedMessage());
+            System.exit(1);
+            return null;
+        }
     }
 }

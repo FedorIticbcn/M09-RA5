@@ -33,7 +33,7 @@ public class XifradorPolialfabetic implements Xifrador{
         try {
             random = new Random(Long.parseLong(clau));
         } catch (NumberFormatException e) {
-            throw new ClauNoSuportada("Clau de Polialfabètic ha de ser un String convertible a long");
+            throw new ClauNoSuportada("La clau de Polialfabètic ha de ser un String convertible a long");
         }
     }
 

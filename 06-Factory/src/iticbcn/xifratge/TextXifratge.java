@@ -22,10 +22,42 @@ public class TextXifratge {
             {"-1", "13", "1000", "Errorclau"}
         };
 
-        for(int i = 0; i <aFactory.length; i++) {
+        for (int i = 0; i < aFactory.length; i++) {
             AlgorismeFactory alg = aFactory[i];
+            String nom = aNames[i];
 
+            Xifrador xifrador = alg.creaXifrador();
 
+            System.out.println("========================");
+
+            for (String msg : msgs) {
+                for (String clau : claus[i]) {
+                    System.out.println("msg: " + msg);
+                    System.out.println("Algorisme: " + nom);
+                    System.out.println("Clau: " + clau);
+
+                    TextXifrat tx = null;
+
+                    try {
+                        tx = xifrador.xifra(msg, clau);
+                    } catch (ClauNoSuportada e) {
+                        System.err.println(e.getLocalizedMessage());
+                    }
+
+                    System.out.println("TextXifrat: " + tx);
+
+                    String desxifrat = null;
+
+                    try {
+                        desxifrat = xifrador.desxifra(tx, clau);
+                    } catch (ClauNoSuportada e) {
+                        System.err.println(e.getLocalizedMessage());
+                    }
+
+                    System.out.println("Desxifrat: " + desxifrat);
+                    System.out.println("---------------");
+                }
+            }
         }
     }
 }
